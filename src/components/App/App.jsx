@@ -1,7 +1,7 @@
 import React, { Component} from 'react';
 import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
-import Dropdown from '../dropdown/dropdown.container';
+import Dropdown from '../Dropdown/dropdown.container';
 import globalStyles from '../../../style/globals.less';
 import appStyles from './App.less';
 
