@@ -1,6 +1,8 @@
 import React, { Component} from "react";
-import {hot} from "react-hot-loader";
+import { hot } from "react-hot-loader";
+import { connect } from 'react-redux';
 import "./App.less";
+
 
 class App extends Component{
   render(){
@@ -12,8 +14,8 @@ class App extends Component{
   }
 }
 
-export default hot(module)(App);
-
 if (module.hot) {
   module.hot.accept()
 }
+
+export default hot(module)(connect()(App));
