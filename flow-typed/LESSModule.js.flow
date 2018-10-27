@@ -1,0 +1,3 @@
+declare module 'LESSModule' {
+  declare module.exports: any;
+}
