@@ -25,3 +25,19 @@
   font-size: @extra-small-font-size;
 }
 
+.custom-btn {
+  width: 128px;
+  height: 32px;
+  border: none;
+  background: @light-orange;
+  color: @light-gray;
+  border-radius: 2px;
+
+  &:active {
+    background: @dark-orange;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}

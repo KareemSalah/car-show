@@ -15,6 +15,7 @@ class App extends Component{
         <h4> Hello, World! </h4>
         <h5> Hello, World! </h5>
         <p> Hello, World! </p>
+        <button class="custom-btn">Test</button>
       </div>
     );
   }
