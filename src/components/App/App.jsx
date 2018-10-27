@@ -1,11 +1,20 @@
-import React, { Component} from "react";
-import { hot } from "react-hot-loader";
+import React, { Component} from 'react';
+import { hot } from 'react-hot-loader';
 import { connect } from 'react-redux';
-import "./App.less";
-import styles from "../../../style/globals.less";
+import Dropdown from '../dropdown/dropdown.container';
+import globalStyles from '../../../style/globals.less';
+import appStyles from './App.less';
 
 
 class App extends Component{
+  constructor(props) {
+    super(props);
+    this.state = {
+      onClick: function() {},
+      menuItems: []
+    };
+  }
+
   render(){
     return(
       <div className="App">
@@ -15,10 +24,12 @@ class App extends Component{
         <h4> Hello, World! </h4>
         <h5> Hello, World! </h5>
         <p> Hello, World! </p>
-        <button class="custom-btn">Test</button>
+        <button className="custom-btn">Test</button>
         <div>
-          <a class="custom-a" href="#">This is a link</a>
+          <a className="custom-a" href="#">This is a link</a>
         </div>
+
+        <Dropdown {...this.state}/>
       </div>
     );
   }

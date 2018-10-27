@@ -5,7 +5,7 @@
   "scripts": {
     "start": "webpack-dev-server --mode development",
     "test": "echo \"Error: no test specified\" && exit 1",
-    "flow": "flow"
+    "lint": "flow check"
   },
   "repository": {
     "type": "git",
@@ -30,6 +30,7 @@
     "enzyme": "^3.7.0",
     "enzyme-adapter-react-16": "^1.6.0",
     "flow-bin": "^0.83.0",
+    "flow-typed": "^2.5.1",
     "less": "^3.8.1",
     "less-loader": "^4.1.0",
     "redux-devtools": "^3.4.1",
@@ -41,6 +42,7 @@
   },
   "dependencies": {
     "@babel/preset-flow": "^7.0.0",
+    "babel-plugin-transform-flow-strip-types": "^6.22.0",
     "normalize.css": "^8.0.0",
     "react": "^16.5.2",
     "react-dom": "^16.5.2",
