@@ -16,6 +16,9 @@ class App extends Component{
         <h5> Hello, World! </h5>
         <p> Hello, World! </p>
         <button class="custom-btn">Test</button>
+        <div>
+          <a class="custom-a" href="#">This is a link</a>
+        </div>
       </div>
     );
   }
