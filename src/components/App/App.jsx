@@ -5,8 +5,15 @@ import Dropdown from '../dropdown/dropdown.container';
 import globalStyles from '../../../style/globals.less';
 import appStyles from './App.less';
 
+// Hacky workaround, should find another proper way of doing this
+declare var module: any;
 
-class App extends Component{
+type State = {
+  onClick: Function,
+  menuItems: Array<any>
+};
+
+class App extends Component<null, State>{
   constructor(props) {
     super(props);
     this.state = {
@@ -35,8 +42,9 @@ class App extends Component{
   }
 }
 
+
 if (module.hot) {
-  module.hot.accept()
+  module.hot.accept();
 }
 
 export default hot(module)(connect()(App));
