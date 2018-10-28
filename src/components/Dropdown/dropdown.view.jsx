@@ -53,11 +53,7 @@ export default class DropdownView extends Component<Props, State> {
   }
 
   choiceSelected(event: SyntheticEvent<HTMLButtonElement>): void {
-    if (!(event.currentTarget instanceof window.HTMLInputElement)) {
-      return;
-    }
-
-    const selectedIndex = parseInt(event.currentTarget.attributes.itemindex.value);
+    const selectedIndex = parseInt(event.currentTarget.getAttribute('itemindex'));
     this.props.onClick(selectedIndex);
     this.toggleDropdown(this.props.menuItems[selectedIndex]);
   }
