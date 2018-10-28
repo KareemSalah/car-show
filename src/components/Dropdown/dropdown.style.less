@@ -1,3 +1,46 @@
-.hide {
-  display: none;
+@import '../../../style/constants.less';
+
+.dropdown-container {
+  .hide {
+    display: none;
+  }
+  .dropdown-toggle {
+    min-width: 200px;
+    height: 32px;
+    border: 2px solid @light-gray;
+    background: unset;
+    color: @dark-gray;
+    border-radius: 2px;
+    padding: 5px;
+    display: flex;
+
+    &:focus {
+      outline: 0;
+    }
+
+    .dropdown-toggle-text {
+      width: 50%;
+      text-align: left;
+    }
+
+    .dropdown-toggle-caret {
+      width: 50%;
+      text-align: right;
+      color: @light-gray;
+      position: relative;
+      transition: all 0.25s;
+
+      .dropdown-toggle-caret-container {
+        position: absolute;
+        right: 0;
+        width: 10px;
+        transition: all 0.20s;
+      }
+
+      .flip {
+        transform: rotate(180deg);
+        transform-origin: center;
+      }
+    }
+  }
 }

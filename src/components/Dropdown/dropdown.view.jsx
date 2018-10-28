@@ -9,8 +9,9 @@ type Props = {
 
 type State = {
   selection: Object,
-  classList: Array<string>,
-  shouldUpdate: boolean
+  menuClassList: Array<string>,
+  caretClassList: Array<string>,
+  caretContainerClassList: Array<string>
 };
 
 export default class DropdownView extends Component<Props, State> {
@@ -21,33 +22,38 @@ export default class DropdownView extends Component<Props, State> {
         text: 'Select a filter',
         value: undefined
       },
-      classList: [
+      menuClassList: [
         'dropdown-content',
         'hide'
       ],
-      shouldUpdate: true
+      caretClassList: [
+        'dropdown-toggle-caret-container'
+      ]
     };
   }
 
   toggleDropdown(newSelection?: Object): void {
-    let newClass = '';
+    let newMenuContentClassList = [...this.state.menuClassList];
+    let newCaretClassList = [...this.state.caretClassList];
 
-    if (this.state.classList.pop() === 'show') {
-      newClass = 'hide';
+    if (newMenuContentClassList.pop() === 'show') {
+      newMenuContentClassList.push('hide');
+      newCaretClassList.pop();
     } else {
-      newClass = 'show';
+      newMenuContentClassList.push('show');
+      newCaretClassList.push('flip');
     }
 
     if (newSelection && newSelection.value) {
       this.setState({
-        classList: [...this.state.classList, newClass],
-        selection: newSelection,
-        shouldUpdate: this.state.selection.value !== newSelection.value
+        menuClassList: newMenuContentClassList,
+        caretClassList: newCaretClassList,
+        selection: newSelection
       });
     } else {
       this.setState({
-        classList: [...this.state.classList, newClass],
-        shouldUpdate: true
+        menuClassList: newMenuContentClassList,
+        caretClassList: newCaretClassList
       });
     }
   }
@@ -75,10 +81,6 @@ export default class DropdownView extends Component<Props, State> {
     return items;
   }
 
-  shouldComponentUpdate(nextProps: Props, nextState: State) {
-    return nextState.shouldUpdate;
-  }
-
   render() {
     if (!this.props.menuItems || !this.props.onClick) {
       return (
@@ -91,10 +93,17 @@ export default class DropdownView extends Component<Props, State> {
     return (
       <div className = "dropdown-container">
         <button onClick = {this.toggleDropdown.bind(this)} className = "dropdown-toggle">
-          {this.state.selection.text}
+          <div className = "dropdown-toggle-text">
+            {this.state.selection.text}
+          </div>
+          <div className = "dropdown-toggle-caret">
+            <div className = {this.state.caretClassList.join(' ')}>
+              <i className = "fas fa-caret-down"></i>
+            </div>
+          </div>
         </button>
 
-        <ul className = {this.state.classList.join(' ')}>
+        <ul className = {this.state.menuClassList.join(' ')}>
           {this.renderMenuItems()}
         </ul>
       </div>
