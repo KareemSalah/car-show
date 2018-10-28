@@ -1,3 +1,4 @@
 node_modules
 bundle.js
 flow-typed/npm
+**/__snapshots__/*
