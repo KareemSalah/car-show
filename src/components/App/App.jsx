@@ -17,8 +17,23 @@ class App extends Component<null, State>{
   constructor(props) {
     super(props);
     this.state = {
-      onClick: function() {},
-      menuItems: []
+      onClick: function(param) {
+        console.log(param)
+      },
+      menuItems: [
+        {
+          text: 'Selection A',
+          value: 'valA'
+        },
+        {
+          text: 'Selection B',
+          value: 'valB'
+        },
+        {
+          text: 'Selection C',
+          value: 'valC'
+        }
+      ]
     };
   }
 
