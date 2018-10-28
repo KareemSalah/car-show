@@ -15,6 +15,10 @@ module.exports = {
       {
         test: /\.(css|less)$/,
         use: ["style-loader", "css-loader", "less-loader"]
+      },
+      {
+        test: /.png$/,
+        loader: 'url-loader?limit=100000'
       }
     ]
   },
@@ -24,7 +28,7 @@ module.exports = {
   },
   output: {
     path: path.resolve(__dirname),
-    publicPath: __dirname,
+    publicPath: path.join(__dirname, 'assets'),
     filename: "bundle.js"
   },
   devServer: {
