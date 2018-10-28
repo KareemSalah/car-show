@@ -4,7 +4,8 @@ import { connect } from 'react-redux';
 import { Route, Switch } from 'react-router-dom';
 import Dropdown from '../Dropdown/dropdown.container';
 import Header from '../Header/Header.container';
-// import Footer from '../Footer/Footer.container';
+import Footer from '../Footer/Footer.container';
+import HomePage from '../HomePage/HomePage.container';
 import globalStyles from '../../../style/globals.less';
 
 // Hacky workaround, should find another proper way of doing this
@@ -20,8 +21,9 @@ class App extends Component<null, State>{
       <div className="App">
         <Header />
         <Switch>
+          <Route path = "/" component = {HomePage}/>
         </Switch>
-        {/* <Footer /> */}
+        <Footer />
       </div>
     );
   }
