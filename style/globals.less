@@ -1,0 +1,50 @@
+@import './constants.less';
+
+:root {
+  color: @dark-gray;
+  font-family: @base-font-family;
+  line-height: 1.6;
+}
+
+.title {
+  font-size: @large-font-size;
+}
+
+.sub-title {
+  font-size: @medium-font-size;
+  &.bold {
+    font-weight: bold;
+  }
+}
+
+.paragraph-text {
+  font-size: @small-font-size;
+}
+
+.paragraph-small-text {
+  font-size: @extra-small-font-size;
+}
+
+.custom-btn {
+  width: 128px;
+  height: 32px;
+  border: none;
+  background: @light-orange;
+  color: @light-gray;
+  border-radius: 2px;
+
+  &:active {
+    background: @dark-orange;
+  }
+
+  &:focus {
+    outline: 0;
+  }
+}
+
+.custom-a {
+  color: @light-orange;
+  &:not(:hover) {
+    text-decoration: none;
+  }
+}

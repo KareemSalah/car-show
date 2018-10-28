@@ -1,4 +1,6 @@
 [ignore]
+.*/node_modules/.*
+.*/__tests__/.*
 
 [include]
 
@@ -9,6 +11,7 @@ all=warn
 
 [options]
 all=true
-include_warnings=true
+module.name_mapper.extension='less' -> 'LESSModule'
+module.system=haste
 
 [strict]
