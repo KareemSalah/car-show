@@ -52,6 +52,9 @@ class App extends Component<null, State>{
         </div>
 
         <Dropdown {...this.state}/>
+        <div>
+          <a className="custom-a" href="#">This is a link</a>
+        </div>
       </div>
     );
   }

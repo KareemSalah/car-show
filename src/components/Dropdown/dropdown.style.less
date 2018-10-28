@@ -2,8 +2,17 @@
 
 .dropdown-container {
   .hide {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0.3s, opacity 0.5s ease-in-out;
   }
+
+  .show {
+    visibility: visible;
+    opacity: 1;
+    transition: visibility 0.15s, opacity 0.5s ease-in-out;
+  }
+
   .dropdown-toggle {
     min-width: 200px;
     height: 32px;
@@ -40,6 +49,36 @@
       .flip {
         transform: rotate(180deg);
         transform-origin: center;
+      }
+    }
+  }
+
+  .dropdown-content {
+    list-style: none;
+    padding: 0px;
+    margin: 5px 0px 0px 0px;
+    position: absolute;
+    z-index: 1000;
+
+    .dropdown-item-btn {
+      color: @dark-gray;
+      background: white;
+      min-width: 200px;
+      height: 32px;
+      border: 2px solid @light-gray;
+      border-radius: 2px;
+      padding: 0px;
+      margin: 0px;
+
+      &:focus {
+        background: @light-orange;
+      }
+    }
+
+    li + li {
+      .dropdown-item-btn {
+        border-top: unset;
+        border-radius: unset;
       }
     }
   }
