@@ -10,8 +10,7 @@ type Props = {
 type State = {
   selection: Object,
   menuClassList: Array<string>,
-  caretClassList: Array<string>,
-  caretContainerClassList: Array<string>
+  caretClassList: Array<string>
 };
 
 export default class DropdownView extends Component<Props, State> {
