@@ -33,6 +33,7 @@ module.exports = {
   },
   devServer: {
     contentBase: __dirname,
+    historyApiFallback: true,
     port: 3000,
     publicPath: "http://localhost:3000/",
     hot: true,

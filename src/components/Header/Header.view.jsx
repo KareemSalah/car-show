@@ -20,17 +20,17 @@ export default class HeaderView extends Component<Props> {
 
         <div className = "nav-menu-container">
           <div className = "nav-menu-list">
-              <Link to = "/">
+              <Link to = "/purchase">
                 <p className = "sub-title">
                   Purchase
                 </p>
               </Link>
-              <Link to = "/">
+              <Link to = "/orders">
                 <p className = "sub-title">
                   My Orders
                 </p>
               </Link>
-              <Link to = "/">
+              <Link to = "/sell">
                 <p className = "sub-title">
                   Sell
                 </p>

@@ -1,5 +1,5 @@
 import { Provider } from 'react-redux';
-import { BrowserRouter } from 'react-router-dom';
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import React from "react";
 import ReactDOM from "react-dom";
 import App from "./components/App/App.jsx";
@@ -12,7 +12,9 @@ if (root != null) {
   ReactDOM.render(
     <Provider store={configureStore()}>
       <BrowserRouter>
-        <App />
+        <Switch>
+          <Route path = "/" component = {App}/>
+        </Switch>
       </BrowserRouter>
     </Provider>,
     root

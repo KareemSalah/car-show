@@ -6,6 +6,7 @@ import Dropdown from '../Dropdown/dropdown.container';
 import Header from '../Header/Header.container';
 import Footer from '../Footer/Footer.container';
 import HomePage from '../HomePage/HomePage.container';
+import Page404 from '../Page404/Page404.container';
 import globalStyles from '../../../style/globals.less';
 
 // Hacky workaround, should find another proper way of doing this
@@ -21,7 +22,8 @@ class App extends Component<null, State>{
       <div className="App">
         <Header />
         <Switch>
-          <Route path = "/" component = {HomePage}/>
+          <Route exact path = "/" component = {HomePage}/>
+          <Route component = {Page404}/>
         </Switch>
         <Footer />
       </div>
