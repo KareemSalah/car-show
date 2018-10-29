@@ -4,7 +4,8 @@ import styles from './dropdown.style.less';
 
 type Props = {
   onClick: Function,
-  menuItems: Array<any>
+  menuItems: Array<any>,
+  keyid: string
 };
 
 type State = {
@@ -18,7 +19,7 @@ export default class DropdownView extends Component<Props, State> {
     super(props);
     this.state = {
       selection: {
-        text: 'Select a filter',
+        text: 'Select',
         value: undefined
       },
       menuClassList: [
@@ -31,7 +32,7 @@ export default class DropdownView extends Component<Props, State> {
     };
   }
 
-  toggleDropdown(newSelection?: Object): void {
+  toggleDropdown(): void {
     let newMenuContentClassList = [...this.state.menuClassList];
     let newCaretClassList = [...this.state.caretClassList];
 
@@ -43,24 +44,17 @@ export default class DropdownView extends Component<Props, State> {
       newCaretClassList.push('flip');
     }
 
-    if (newSelection && newSelection.value) {
-      this.setState({
-        menuClassList: newMenuContentClassList,
-        caretClassList: newCaretClassList,
-        selection: newSelection
-      });
-    } else {
-      this.setState({
-        menuClassList: newMenuContentClassList,
-        caretClassList: newCaretClassList
-      });
-    }
+    this.setState({
+      menuClassList: newMenuContentClassList,
+      caretClassList: newCaretClassList
+    });
   }
 
   choiceSelected(event: SyntheticEvent<HTMLButtonElement>): void {
     const selectedIndex = parseInt(event.currentTarget.getAttribute('itemindex'));
     this.props.onClick(selectedIndex);
-    this.toggleDropdown(this.props.menuItems[selectedIndex]);
+    this.setState({ selection: this.props.menuItems[selectedIndex] });
+    this.toggleDropdown();
   }
 
   renderMenuItems(): Array<any> {
@@ -78,6 +72,17 @@ export default class DropdownView extends Component<Props, State> {
     });
 
     return items;
+  }
+
+  componentWillUpdate(nextProps: Props) {
+    if (nextProps.menuItems.length && this.state.selection.text === 'Select' && nextProps.menuItems[0].value === 'undefined') {
+      this.setState({
+        selection: {
+          text: nextProps.menuItems[0].text,
+          value: nextProps.menuItems[0].value
+        }
+      });
+    }
   }
 
   render() {

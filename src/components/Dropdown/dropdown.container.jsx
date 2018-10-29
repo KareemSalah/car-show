@@ -4,7 +4,8 @@ import DropdownView from './dropdown.view';
 
 type Props = {
   onClick: Function,
-  menuItems: Array<any>
+  menuItems: Array<any>,
+  keyid: string
 };
 
 export default class Dropdown extends Component<Props> {

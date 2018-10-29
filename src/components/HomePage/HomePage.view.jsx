@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CarList from '../CarList/CarList.container';
 
 
 type Props = {};
@@ -11,7 +12,7 @@ export default class HomePageView extends Component<Props> {
   render() {
     return (
       <div className = "main-content-container">
-        <h1>Hi</h1>
+        <CarList />
       </div>
     );
   }
