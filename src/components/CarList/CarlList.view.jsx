@@ -6,7 +6,12 @@ import styles from './CarList.style.less';
 
 type Props = {
   carList: Array<Object>,
-  listFilters: string
+  listFilters: string,
+  totalPages: Number,
+  first: Function,
+  last: Function,
+  prev: Function,
+  next: Function
 };
 
 export default class CarlListView extends Component<Props> {
@@ -37,16 +42,25 @@ export default class CarlListView extends Component<Props> {
 
   render() {
     return (
-      <div className = "car-list-container">
-        <div className = "filter-box-wrapper">
-          <FilterBox key = "car-filter-box"/>
-        </div>
-        <div className = "car-list-wrapper">
-          <div className = "car-list-header">
-            <h2>Available Cars</h2>
-            <p className = "sub-title">Showing {Math.min(this.props.carList.length, 10)} of 100 results</p>
+      <div className = "car-list-wrapper">
+        <div className = "car-list-container">
+          <div className = "filter-box-wrapper">
+            <FilterBox key = "car-filter-box"/>
           </div>
-          {this.renderCarList()}
+          <div className = "car-list-wrapper">
+            <div className = "car-list-header">
+              <h2>Available Cars</h2>
+              <p className = "sub-title">Showing {Math.min(this.props.carList.length, 10)} of 100 results</p>
+            </div>
+            {this.renderCarList()}
+          </div>
+        </div>
+        <div className = "car-list-pagination">
+          <a href = "#" onClick = {this.props.first}>First</a>
+          <a href = "#" onClick = {this.props.prev}>Previous</a>
+          <p>Page {this.props.listFilters.page} of {this.props.totalPages}</p>
+          <a href = "#" onClick = {this.props.next}>Next</a>
+          <a href = "#" onClick = {this.props.last}>Last</a>
         </div>
       </div>
     );
