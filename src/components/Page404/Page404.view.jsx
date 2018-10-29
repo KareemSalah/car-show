@@ -12,7 +12,7 @@ export default class Page404View extends Component<Props> {
     return (
       <div className = "page-404-container">
         <div className = "page-404-logo-container">
-          <img className = "page-404-logo" src="./assets/logo.png" alt="auto1 logo"/>
+          <img className = "page-404-logo" src="/assets/logo.png" alt="auto1 logo"/>
         </div>
         <div>
           <h1 className = "title">
