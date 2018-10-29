@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import Dropdown from '../Dropdown/dropdown.container';
 import FilterBox from '../FilterBox/FilterBox.container';
 import styles from './CarList.style.less';
 
@@ -49,18 +50,24 @@ export default class CarlListView extends Component<Props> {
           </div>
           <div className = "car-list-wrapper">
             <div className = "car-list-header">
-              <h2>Available Cars</h2>
-              <p className = "sub-title">Showing {Math.min(this.props.carList.length, 10)} of 100 results</p>
+              <div className = "list-numbers">
+                <h2>Available Cars</h2>
+                <p className = "sub-title">Showing {Math.min(this.props.carList.length, 10)} of 100 results</p>
+              </div>
+              <div className = "list-sort-container">
+                <label>Sort by</label>
+                <Dropdown menuItems = {this.props.sortOptions} onClick = {this.props.onSortChange.bind(this)}/>
+              </div>
             </div>
             {this.renderCarList()}
+            <div className = "car-list-pagination">
+              <a href = "#" onClick = {this.props.first}>First</a>
+              <a href = "#" onClick = {this.props.prev}>Previous</a>
+              <p>Page {this.props.listFilters.page} of {this.props.totalPages}</p>
+              <a href = "#" onClick = {this.props.next}>Next</a>
+              <a href = "#" onClick = {this.props.last}>Last</a>
+            </div>
           </div>
-        </div>
-        <div className = "car-list-pagination">
-          <a href = "#" onClick = {this.props.first}>First</a>
-          <a href = "#" onClick = {this.props.prev}>Previous</a>
-          <p>Page {this.props.listFilters.page} of {this.props.totalPages}</p>
-          <a href = "#" onClick = {this.props.next}>Next</a>
-          <a href = "#" onClick = {this.props.last}>Last</a>
         </div>
       </div>
     );

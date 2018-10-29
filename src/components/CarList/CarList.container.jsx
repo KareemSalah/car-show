@@ -17,7 +17,9 @@ type Props = {
 type State = {
   carList: Array<Object>,
   filters: Object,
-  totalPages: Number
+  totalPages: Number,
+  sortOptions: Array<string>,
+  onSortChange: Function
 };
 
 export class CarlList extends Component<Props, State> {
@@ -28,7 +30,17 @@ export class CarlList extends Component<Props, State> {
       filters: {
         page: 1
       },
-      totalPages: 0
+      totalPages: 0,
+      sortOptions: [
+        {
+          text: 'Mileage - Ascending',
+          value: 'asc'
+        },
+        {
+          text: 'Mileage - Descending',
+          value: 'dsc'
+        }
+      ]
     };
   }
 
@@ -101,6 +113,12 @@ export class CarlList extends Component<Props, State> {
     this.fetchPage(this.state.filters.page - 1);
   }
 
+  onSortChange(idx) {
+    let newFilters = _.cloneDeep(this.state.filters);
+    newFilters.sort = this.state.sortOptions[idx].value;
+    this.props.changeFilters(newFilters);
+  }
+
   render() {
     return (
       <CarListView
@@ -110,7 +128,9 @@ export class CarlList extends Component<Props, State> {
         first = {this.first.bind(this)}
         last = {this.last.bind(this)}
         next = {this.next.bind(this)}
-        prev = {this.prev.bind(this)}/>
+        prev = {this.prev.bind(this)}
+        sortOptions = {this.state.sortOptions}
+        onSortChange = {this.onSortChange.bind(this)}/>
     );
   }
 }
