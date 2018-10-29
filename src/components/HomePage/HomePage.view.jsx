@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 type Props = {};
 
 export default class HomePageView extends Component<Props> {
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
   }
 

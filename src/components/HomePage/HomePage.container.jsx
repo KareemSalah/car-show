@@ -6,7 +6,7 @@ import styles from './HomePage.style.less';
 type Props = {};
 
 export default class HomePage extends Component<Props> {
-  constructor(props) {
+  constructor(props: Props) {
     super(props);
   }
 

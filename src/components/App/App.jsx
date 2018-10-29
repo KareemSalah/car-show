@@ -12,7 +12,7 @@ import globalStyles from '../../../style/globals.less';
 // Hacky workaround, should find another proper way of doing this
 declare var module: any;
 
-class App extends Component<null, State>{
+class App extends Component<null, null>{
   constructor(props) {
     super(props);
   }
