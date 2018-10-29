@@ -20,12 +20,12 @@ export default class FilterBoxView extends Component<Props> {
       <div className = "filter-box-container">
         <div className = "filter-box-dropdown">
           <label>Color</label>
-          <Dropdown menuItems = {this.props.colors} onClick = {this.props.onColorSelected} keyid = "colors-dropdown"/>
+          <Dropdown menuItems = {this.props.colors} onClick = {this.props.onColorSelected}/>
         </div>
 
         <div className = "filter-box-dropdown">
           <label>Manufacturer</label>
-          <Dropdown menuItems = {this.props.manufacturers} onClick = {this.props.onManufacturerSelected} keyid = "manus-dropdown"/>
+          <Dropdown menuItems = {this.props.manufacturers} onClick = {this.props.onManufacturerSelected}/>
         </div>
 
         <div className = "filter-box-buttom">

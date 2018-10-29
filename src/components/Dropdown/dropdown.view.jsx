@@ -4,8 +4,7 @@ import styles from './dropdown.style.less';
 
 type Props = {
   onClick: Function,
-  menuItems: Array<any>,
-  keyid: string
+  menuItems: Array<any>
 };
 
 type State = {
@@ -75,7 +74,7 @@ export default class DropdownView extends Component<Props, State> {
   }
 
   componentWillUpdate(nextProps: Props) {
-    if (nextProps.menuItems.length && this.state.selection.text === 'Select' && nextProps.menuItems[0].value === 'undefined') {
+    if (nextProps.menuItems.length && this.state.selection.text === 'Select' && typeof nextProps.menuItems[0].value === 'undefined') {
       this.setState({
         selection: {
           text: nextProps.menuItems[0].text,

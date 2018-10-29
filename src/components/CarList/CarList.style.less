@@ -1,3 +1,5 @@
+@import '../../../style/constants.less';
+
 .car-list-container {
   display: flex;
   padding: 20px;
@@ -6,5 +8,35 @@
   }
   .car-list-wrapper {
     flex-grow: 3;
+  }
+
+  .car-list-wrapper {
+    padding: 0px 20px 0px 20px;
+
+    .car-list-header {
+      h2 {
+        margin: 0px;
+      }
+    }
+
+    .car-card {
+      border: 1px solid @light-gray;
+      padding: 10px;
+      margin-bottom: 10px;
+      display: flex;
+
+      .car-card-img {
+        flex-grow: 1;
+        margin: auto;
+        text-align: center;
+        img {
+          width: 70px;
+          margin: auto;
+        }
+      }
+      .car-card-details {
+        flex-grow: 10;
+      }
+    }
   }
 }
