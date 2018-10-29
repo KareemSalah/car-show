@@ -35,7 +35,12 @@ export class CarlList extends Component<Props, State> {
 
   componentWillUpdate(nextProps) {
     let options = {
-      params: {}
+      params: {
+        color: this.state.filters.color,
+        manufacturer: this.state.filters.manufacturer,
+        page: this.state.filters.page,
+        sort: this.state.filters.sort
+      }
     };
     let update = false;
 

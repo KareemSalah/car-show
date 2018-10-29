@@ -48,7 +48,7 @@ export class FilterBox extends Component<Props, State> {
     }
 
     if (this.state.selectedManufacturer) {
-      newFilters.selectedManufacturer = this.state.selectedManufacturer;
+      newFilters.manufacturer = this.state.selectedManufacturer;
     }
 
     this.props.changeFilters(newFilters);
@@ -91,7 +91,7 @@ function mapDispatchToProps(dispatch) {
 function mapStateToProps(state) {
   return {
     selectedColor: state.listFilters.color,
-    selectedManufacturer: state.listFilters.manufacturer
+    manufacturer: state.listFilters.manufacturer
   };
 }
 
